@@ -63,7 +63,8 @@ namespace Auto.Website.Controllers.Api {
 			var json = vehicle.ToDynamic();
 			json._links = new {
 				self = new { href = $"/api/vehicles/{id}" },
-				vehicleModel = new { href = $"/api/models/{vehicle.ModelCode}" }
+				vehicleModel = new { href = $"/api/models/{vehicle.ModelCode}" },
+				// ownerName = new { href = $"/api/owners/{vehicle.Owner}" }
 			};
 			json._actions = new {
 				update = new {
@@ -102,11 +103,16 @@ namespace Auto.Website.Controllers.Api {
 			var vehicleModelHref = dto._links.vehicleModel.href;
 			var vehicleModelId = ModelsController.ParseModelId(vehicleModelHref);
 			var vehicleModel = db.FindModel(vehicleModelId);
+			
+			// var vehicleOwnerHref = dto._links.vehicleOwner.href;
+			// var vehicleOwnerName = OwnersController.ParseOwnerName(vehicleOwnerHref);
+			// var vehicleOwner = db.FindOwner(vehicleOwnerName);
 			var vehicle = new Vehicle {
 				Registration = id,
 				Color = dto.color,
 				Year = dto.year,
-				ModelCode = vehicleModel.Code
+				ModelCode = vehicleModel.Code,
+				// Owner = vehicleOwner.Name
 			};
 			db.UpdateVehicle(vehicle);
 			return Get(id);
@@ -119,6 +125,10 @@ namespace Auto.Website.Controllers.Api {
 			if (vehicle == default) return NotFound();
 			db.DeleteVehicle(vehicle);
 			return NoContent();
+		}
+		public static string ParseVehicleId(dynamic href) {
+			var tokens = ((string)href).Split("/");
+			return tokens.Last();
 		}
 	}
 }

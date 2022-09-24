@@ -12,8 +12,13 @@ public class ApiController : ControllerBase {
             _links = new {
                 vehicles = new {
                     href = "/api/vehicles"
+                },
+                owners = new {
+                    href = "/api/owners"
                 }
+                
             }
+            
         };
         return new JsonResult(result);
     }

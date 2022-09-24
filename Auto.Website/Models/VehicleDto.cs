@@ -36,6 +36,8 @@ namespace Auto.Website.Models {
 		[Required]
 		[DisplayName("Colour")]
 		public string Color { get; set; }
+		[DisplayName("Owner")]
+		public string Owner { get; set; }
 	}
 }
 
