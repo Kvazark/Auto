@@ -9,7 +9,7 @@ namespace Auto.Website.GraphQL.GraphTypes
             Field(c => c.Name);
             Field(c => c.NumberPhone);
             Field(c => c.Address);
-            Field(c => c.RegistrationCode, type: typeof(VehicleGraphType)).Description("Owner's car registration number");
+            Field(c => c.VehicleCode, nullable: false,type: typeof(VehicleGraphType)).Description("Owner's car registration number");
         }
     }
 }
