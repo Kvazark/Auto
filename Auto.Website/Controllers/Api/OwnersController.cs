@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Auto.Data;
 using Auto.Data.Entities;
+using Auto.Messages;
 using Auto.Website.Models;
 using Castle.Core.Internal;
+using EasyNetQ;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -14,9 +16,11 @@ namespace Auto.Website.Controllers.Api {
 	[ApiController]
 	public class OwnersController : ControllerBase {
 		private readonly IAutoDatabase db;
+		private readonly IBus bus;
 
-		public OwnersController(IAutoDatabase db) {
+		public OwnersController(IAutoDatabase db, IBus bus) {
 			this.db = db;
+			this.bus = bus;
 		}
 
 		private dynamic Paginate(string url, int index, int count, int total) {
@@ -88,8 +92,18 @@ namespace Auto.Website.Controllers.Api {
 				VehicleCode = vehicleCode
 			};
 			db.CreateOwner(owner);
-			
+			PublishNewOwnerMessage(owner);
 			return Ok(dto);
+		}
+		private void PublishNewOwnerMessage(Owner owner) {
+			var message = new NewOwnerMessage() {
+				Name = owner.Name,
+				NumberPhone = owner.NumberPhone,
+				Address = owner.Address,
+				RegistrationCode = owner?.VehicleCode?.Registration,
+				ListedAtUtc = DateTime.UtcNow
+			};
+			bus.PubSub.Publish(message);
 		}
 
 		
