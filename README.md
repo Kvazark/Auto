@@ -1,5 +1,5 @@
 # Auto
-Демонстрация 5-ти различных взаимодействий: API, GraphQL, RabbitMQ, 
+
 Установка docker для RabbitMQ:
 1.Локально для теста развернуть в docker [ Install Docker Engine | Docker Documentation](https://docs.docker.com/engine/install/)
 2. Скачать в store Ubuntu 22.04.1 LTS
