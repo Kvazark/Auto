@@ -65,11 +65,7 @@ namespace Auto.Website {
             app.UseGraphQLAltair();
             
 
-            app.UseEndpoints(endpoints => {
-                endpoints.MapGrpcService<PricerService>(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            
         }
     }
 }

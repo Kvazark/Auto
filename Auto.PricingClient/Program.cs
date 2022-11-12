@@ -1,7 +1,7 @@
 ﻿using System;
 using Auto.PricingEngine;
 using Grpc.Net.Client;
-using var channel = GrpcChannel.ForAddress("https://localhost:7297");
+using var channel = GrpcChannel.ForAddress("http://localhost:5043");
 var grpcClient = new Pricer.PricerClient(channel);
 Console.WriteLine("Ready! Press any key to send a gRPC request (or Ctrl-C to quit):");
 while (true) {
