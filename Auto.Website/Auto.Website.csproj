@@ -24,6 +24,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Auto.Data\Auto.Data.csproj" />
 		<ProjectReference Include="..\Auto.Messages\Auto.Messages.csproj" />
-		<ProjectReference Include="..\Auto.PricingServer\Auto.PricingServer.csproj" />
+		<ProjectReference Include="..\Auto.OwnerServer\Auto.OwnerServer.csproj" />
 	</ItemGroup>
 </Project>

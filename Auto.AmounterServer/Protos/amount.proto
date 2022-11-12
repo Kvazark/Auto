@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Auto.AmounterEngine";
+
+package amount;
+
+// The greeting service definition.
+service Amounter {
+  // Sends a greeting
+  rpc GetAmount (AmountRequest) returns (AmountReply);
+}
+
+message AmountRequest {
+  string name = 1;
+  string numberPhone = 2;
+  string address = 3;
+  string registrationCode = 4;
+  uint32 mileage = 5;
+}
+message AmountReply {
+  sint32 amount = 1;
+  string currencyCode = 2;
+}

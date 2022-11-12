@@ -7,7 +7,6 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using System.Reflection;
-using Auto.PricingServer.Services;
 using Auto.Website.GraphQL.Schemas;
 using EasyNetQ;
 using GraphQL.Server;
