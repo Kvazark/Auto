@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto.AmounterServer", "Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto.AmounterClient", "Auto.AmounterClient\Auto.AmounterClient.csproj", "{4ED42174-09F3-43E6-A0BB-FC97634B9C86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto.SignalRClient", "Auto.SignalRClient\Auto.SignalRClient.csproj", "{924C7E65-B536-431A-9104-17D4C1CCC24F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{4ED42174-09F3-43E6-A0BB-FC97634B9C86}.Release|x64.Build.0 = Release|Any CPU
 		{4ED42174-09F3-43E6-A0BB-FC97634B9C86}.Release|x86.ActiveCfg = Release|Any CPU
 		{4ED42174-09F3-43E6-A0BB-FC97634B9C86}.Release|x86.Build.0 = Release|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Debug|x64.Build.0 = Debug|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Debug|x86.Build.0 = Debug|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Release|x64.ActiveCfg = Release|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Release|x64.Build.0 = Release|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Release|x86.ActiveCfg = Release|Any CPU
+		{924C7E65-B536-431A-9104-17D4C1CCC24F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

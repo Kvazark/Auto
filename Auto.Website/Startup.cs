@@ -8,6 +8,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using Auto.Website.GraphQL.Schemas;
+using Auto.Website.Hubs;
 using EasyNetQ;
 using GraphQL.Server;
 using GraphQL.Types;
@@ -26,6 +27,8 @@ namespace Auto.Website {
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddSingleton<IAutoDatabase, AutoCsvFileDatabase>();
+            
+            services.AddSignalR();
             
             services.AddScoped<ISchema,AutoSchema>();
             services.AddGraphQL(options => { options.EnableMetrics = true; }).AddSystemTextJson();
@@ -46,10 +49,12 @@ namespace Auto.Website {
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/Home/Error");
             } else {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+           
 
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
@@ -63,6 +68,13 @@ namespace Auto.Website {
             
             app.UseGraphQLAltair();
             
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<AutoHub>("/hub"); 
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
 
             
         }

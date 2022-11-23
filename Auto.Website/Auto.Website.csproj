@@ -26,4 +26,17 @@
 		<ProjectReference Include="..\Auto.Messages\Auto.Messages.csproj" />
 		<ProjectReference Include="..\Auto.OwnerServer\Auto.OwnerServer.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="Views\Home\About.cshtml" />
+		<AdditionalFiles Include="Views\Shared\Error.cshtml" />
+		<AdditionalFiles Include="Views\Shared\_Layout.cshtml" />
+		<AdditionalFiles Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+		<AdditionalFiles Include="Views\_ViewImports.cshtml" />
+		<AdditionalFiles Include="Views\_ViewStart.cshtml" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Update="Views\Home\Index.cshtml" />
+		
+	</ItemGroup>
 </Project>
