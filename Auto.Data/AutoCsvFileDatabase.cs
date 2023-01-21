@@ -147,6 +147,9 @@ namespace Auto.Data {
 
         public Manufacturer FindManufacturer(string code) => manufacturers.GetValueOrDefault(code);
         public Owner FindOwner(string name) => owners.GetValueOrDefault(name);
+        
+        public Owner FindOwnerByNumberPhone(string number) =>
+            owners.FirstOrDefault(e => e.Value.NumberPhone.Equals(number)).Value;
 
         public void CreateVehicle(Vehicle vehicle)
         {

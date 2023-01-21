@@ -1,14 +1,18 @@
 ﻿using System;
-using Auto.OwnerEngine;
+using Auto.InfoOwnerServer;
 using Grpc.Net.Client;
-using var channel = GrpcChannel.ForAddress("http://localhost:5043");
-var grpcClient = new Amounter.AmounterClient(channel);
-Console.WriteLine("Ready! Press any key to send a gRPC request (or Ctrl-C to quit):");
-while (true) {
-    Console.ReadKey(true);
-    var request = new AmountRequest {
-        Name = "Романовa Варвара Дмитриевна"
-    };
-    var reply = grpcClient.GetAmount(request);
-    Console.WriteLine($"{request.Name} had {reply.Amount}");
-}
+
+using var channel = GrpcChannel.ForAddress("http://localhost:5263");
+var grpcClient = new OwnerInfo.OwnerInfoClient(channel);
+Console.WriteLine("Ready! Press any key to send a gRPCrequest (or Ctrl-C to quit):");
+
+// Console.WriteLine("Enter email:");
+// var email = Console.ReadLine();
+var number = "89141869814";
+var request = new OwnerInfoRequest
+{
+    Number = number
+};
+
+var reply = grpcClient.GetOwnerInfo(request);
+Console.WriteLine($"Information about {reply.Name}: lives at {reply.Address}; vehicle registration number:{reply.Registration}.");
