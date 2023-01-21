@@ -1,21 +1,22 @@
-﻿using System;
-using System.Text.Json;
+﻿
+
+using System;
 using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Auto.Messages;
 using EasyNetQ;
 using Microsoft.AspNetCore.SignalR.Client;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 using Microsoft.Extensions.Configuration;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Auto.Notifier
 {
     internal class Program
     {
-        const string SIGNALR_HUB_URL = "https://localhost:5000/hub";
+        const string SIGNALR_HUB_URL = "http://localhost:5000/hub";
         private static HubConnection hub;
         
-        // private static readonly IConfigurationRoot config = ReadConfiguration();
+   //     private static readonly IConfigurationRoot config = ReadConfiguration();
         private const string SUBSCRIBER_ID = "Auto.AuditLog";
 
         static async Task Main(string[] args)

@@ -42,7 +42,7 @@ class Program
 
     private static async Task HandleNewOwnerMessage(NewOwnerMessage message)
     {
-        Console.WriteLine($"new owner; {message.Name}");
+        Console.WriteLine($"new owner: {message.Name}");
         var ownerInfoRequest = new OwnerInfoRequest
         {
             Number = message.NumberPhone

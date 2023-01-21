@@ -12,7 +12,7 @@ service OwnerInfo {
 
 // The request message containing the user's name.
 message OwnerInfoRequest {
-  string number = 1;
+  string registration = 1;
 }
 
 // The response message containing the greetings.
