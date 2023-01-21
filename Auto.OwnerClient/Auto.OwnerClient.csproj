@@ -8,15 +8,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="EasyNetQ" Version="7.3.10" />
+      <PackageReference Include="EasyNetQ.Serialization.NewtonsoftJson" Version="7.3.10" />
       <PackageReference Include="Google.Protobuf" Version="3.21.12" />
       <PackageReference Include="Grpc.Net.Client" Version="2.51.0" />
       <PackageReference Include="Grpc.Tools" Version="2.51.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.2" />
     </ItemGroup>
     <ItemGroup>
         <Protobuf Include="..\Auto.OwnerService\Protos\ownerInfo.proto" GrpcServices="Client" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Auto.Messages\Auto.Messages.csproj" />
     </ItemGroup>
 
 </Project>

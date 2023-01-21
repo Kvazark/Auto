@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto.OwnerService", "Auto.O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto.OwnerClient", "Auto.OwnerClient\Auto.OwnerClient.csproj", "{A1FE1D2F-5ADB-422C-9FF7-9C569F254595}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto.Notifier", "Auto.Notifier\Auto.Notifier.csproj", "{20067D62-D920-4195-B4D6-F68D1F7ACB7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,18 @@ Global
 		{A1FE1D2F-5ADB-422C-9FF7-9C569F254595}.Release|x64.Build.0 = Release|Any CPU
 		{A1FE1D2F-5ADB-422C-9FF7-9C569F254595}.Release|x86.ActiveCfg = Release|Any CPU
 		{A1FE1D2F-5ADB-422C-9FF7-9C569F254595}.Release|x86.Build.0 = Release|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Debug|x64.Build.0 = Debug|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Debug|x86.Build.0 = Debug|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Release|x64.ActiveCfg = Release|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Release|x64.Build.0 = Release|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Release|x86.ActiveCfg = Release|Any CPU
+		{20067D62-D920-4195-B4D6-F68D1F7ACB7A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
