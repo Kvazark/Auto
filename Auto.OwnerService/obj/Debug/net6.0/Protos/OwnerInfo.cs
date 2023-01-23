@@ -24,17 +24,17 @@ namespace Auto.InfoOwnerServer {
     static OwnerInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZQcm90b3Mvb3duZXJJbmZvLnByb3RvEgVvd25lciIiChBPd25lckluZm9S",
-            "ZXF1ZXN0Eg4KBm51bWJlchgBIAEoCSJFCg5Pd25lckluZm9SZXBseRIMCgRu",
-            "YW1lGAEgASgJEg8KB2FkZHJlc3MYAiABKAkSFAoMcmVnaXN0cmF0aW9uGAMg",
-            "ASgJMksKCU93bmVySW5mbxI+CgxHZXRPd25lckluZm8SFy5vd25lci5Pd25l",
-            "ckluZm9SZXF1ZXN0GhUub3duZXIuT3duZXJJbmZvUmVwbHlCF6oCFEF1dG8u",
-            "SW5mb093bmVyU2VydmVyYgZwcm90bzM="));
+            "ChZQcm90b3Mvb3duZXJJbmZvLnByb3RvEgVvd25lciIoChBPd25lckluZm9S",
+            "ZXF1ZXN0EhQKDHJlZ2lzdHJhdGlvbhgBIAEoCSIuCg5Pd25lckluZm9SZXBs",
+            "eRINCgVtb2RlbBgBIAEoCRINCgVjb2xvchgCIAEoCTJLCglPd25lckluZm8S",
+            "PgoMR2V0T3duZXJJbmZvEhcub3duZXIuT3duZXJJbmZvUmVxdWVzdBoVLm93",
+            "bmVyLk93bmVySW5mb1JlcGx5QheqAhRBdXRvLkluZm9Pd25lclNlcnZlcmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Auto.InfoOwnerServer.OwnerInfoRequest), global::Auto.InfoOwnerServer.OwnerInfoRequest.Parser, new[]{ "Number" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Auto.InfoOwnerServer.OwnerInfoReply), global::Auto.InfoOwnerServer.OwnerInfoReply.Parser, new[]{ "Name", "Address", "Registration" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Auto.InfoOwnerServer.OwnerInfoRequest), global::Auto.InfoOwnerServer.OwnerInfoRequest.Parser, new[]{ "Registration" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Auto.InfoOwnerServer.OwnerInfoReply), global::Auto.InfoOwnerServer.OwnerInfoReply.Parser, new[]{ "Model", "Color" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace Auto.InfoOwnerServer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OwnerInfoRequest(OwnerInfoRequest other) : this() {
-      number_ = other.number_;
+      registration_ = other.registration_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,14 +82,14 @@ namespace Auto.InfoOwnerServer {
       return new OwnerInfoRequest(this);
     }
 
-    /// <summary>Field number for the "number" field.</summary>
-    public const int NumberFieldNumber = 1;
-    private string number_ = "";
+    /// <summary>Field number for the "registration" field.</summary>
+    public const int RegistrationFieldNumber = 1;
+    private string registration_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Number {
-      get { return number_; }
+    public string Registration {
+      get { return registration_; }
       set {
-        number_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        registration_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -106,14 +106,14 @@ namespace Auto.InfoOwnerServer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Number != other.Number) return false;
+      if (Registration != other.Registration) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Number.Length != 0) hash ^= Number.GetHashCode();
+      if (Registration.Length != 0) hash ^= Registration.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -130,9 +130,9 @@ namespace Auto.InfoOwnerServer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Number.Length != 0) {
+      if (Registration.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Number);
+        output.WriteString(Registration);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -143,9 +143,9 @@ namespace Auto.InfoOwnerServer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Number.Length != 0) {
+      if (Registration.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Number);
+        output.WriteString(Registration);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -156,8 +156,8 @@ namespace Auto.InfoOwnerServer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Number.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Number);
+      if (Registration.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Registration);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -170,8 +170,8 @@ namespace Auto.InfoOwnerServer {
       if (other == null) {
         return;
       }
-      if (other.Number.Length != 0) {
-        Number = other.Number;
+      if (other.Registration.Length != 0) {
+        Registration = other.Registration;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -188,7 +188,7 @@ namespace Auto.InfoOwnerServer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Number = input.ReadString();
+            Registration = input.ReadString();
             break;
           }
         }
@@ -206,7 +206,7 @@ namespace Auto.InfoOwnerServer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Number = input.ReadString();
+            Registration = input.ReadString();
             break;
           }
         }
@@ -248,9 +248,8 @@ namespace Auto.InfoOwnerServer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OwnerInfoReply(OwnerInfoReply other) : this() {
-      name_ = other.name_;
-      address_ = other.address_;
-      registration_ = other.registration_;
+      model_ = other.model_;
+      color_ = other.color_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -259,36 +258,25 @@ namespace Auto.InfoOwnerServer {
       return new OwnerInfoReply(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
+    /// <summary>Field number for the "model" field.</summary>
+    public const int ModelFieldNumber = 1;
+    private string model_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
+    public string Model {
+      get { return model_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        model_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "address" field.</summary>
-    public const int AddressFieldNumber = 2;
-    private string address_ = "";
+    /// <summary>Field number for the "color" field.</summary>
+    public const int ColorFieldNumber = 2;
+    private string color_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Address {
-      get { return address_; }
+    public string Color {
+      get { return color_; }
       set {
-        address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "registration" field.</summary>
-    public const int RegistrationFieldNumber = 3;
-    private string registration_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Registration {
-      get { return registration_; }
-      set {
-        registration_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        color_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -305,18 +293,16 @@ namespace Auto.InfoOwnerServer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
-      if (Address != other.Address) return false;
-      if (Registration != other.Registration) return false;
+      if (Model != other.Model) return false;
+      if (Color != other.Color) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Address.Length != 0) hash ^= Address.GetHashCode();
-      if (Registration.Length != 0) hash ^= Registration.GetHashCode();
+      if (Model.Length != 0) hash ^= Model.GetHashCode();
+      if (Color.Length != 0) hash ^= Color.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -333,17 +319,13 @@ namespace Auto.InfoOwnerServer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (Model.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Model);
       }
-      if (Address.Length != 0) {
+      if (Color.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Address);
-      }
-      if (Registration.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Registration);
+        output.WriteString(Color);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -354,17 +336,13 @@ namespace Auto.InfoOwnerServer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (Model.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Model);
       }
-      if (Address.Length != 0) {
+      if (Color.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Address);
-      }
-      if (Registration.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Registration);
+        output.WriteString(Color);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -375,14 +353,11 @@ namespace Auto.InfoOwnerServer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (Model.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Model);
       }
-      if (Address.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
-      }
-      if (Registration.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Registration);
+      if (Color.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Color);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -395,14 +370,11 @@ namespace Auto.InfoOwnerServer {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.Model.Length != 0) {
+        Model = other.Model;
       }
-      if (other.Address.Length != 0) {
-        Address = other.Address;
-      }
-      if (other.Registration.Length != 0) {
-        Registration = other.Registration;
+      if (other.Color.Length != 0) {
+        Color = other.Color;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -419,15 +391,11 @@ namespace Auto.InfoOwnerServer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Model = input.ReadString();
             break;
           }
           case 18: {
-            Address = input.ReadString();
-            break;
-          }
-          case 26: {
-            Registration = input.ReadString();
+            Color = input.ReadString();
             break;
           }
         }
@@ -445,15 +413,11 @@ namespace Auto.InfoOwnerServer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Model = input.ReadString();
             break;
           }
           case 18: {
-            Address = input.ReadString();
-            break;
-          }
-          case 26: {
-            Registration = input.ReadString();
+            Color = input.ReadString();
             break;
           }
         }

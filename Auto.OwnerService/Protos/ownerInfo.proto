@@ -17,7 +17,6 @@ message OwnerInfoRequest {
 
 // The response message containing the greetings.
 message OwnerInfoReply {
-  string name = 1;
-  string address = 2;
-  string registration=3;
+  string model = 1;
+  string color = 2;
 }

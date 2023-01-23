@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using EasyNetQ;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Auto.Notifier
@@ -28,20 +29,26 @@ namespace Auto.Notifier
             var amqp = "amqp://user:rabbitmq@localhost:5672";
             using var bus = RabbitHutch.CreateBus(amqp);
             Console.WriteLine("Connected to bus! Listening for newOwnerMessages");
-            var subscriberId = $"Auto.Notifier@{Environment.MachineName}";
-            await bus.PubSub.SubscribeAsync<NewOwnerRegMessage>(subscriberId, HandleNewOwnerMessage);
+            var subscriberId = $"Auto.Notifier";
+            await bus.PubSub.SubscribeAsync<NewOwnerVecMessage>(subscriberId, HandleNewOwnerMessage);
             Console.ReadLine();
         }
 
-        private static async void HandleNewOwnerMessage(NewOwnerRegMessage nvpm)
+        private static async Task HandleNewOwnerMessage(NewOwnerVecMessage nvpm)
         {
             var csvRow =
                 $"{nvpm.Name} : {nvpm.Address}," +
-                $"{nvpm.NumberPhone},{nvpm.RegistrationCode},{nvpm.ListedAtUtc:O}";
+                $"{nvpm.NumberPhone},{nvpm.RegistrationCode},{nvpm.Color}, {nvpm.Model}{nvpm.ListedAtUtc:O}";
             Console.WriteLine(csvRow);
-            var json = JsonSerializer.Serialize(nvpm, JsonSettings());
+            var message = JsonConvert.SerializeObject(new NewOwnerVecMessage()
+            {
+                Name = nvpm.Name,
+                Address = nvpm.Address,
+                Model = nvpm.Model
+            });
+           // var json = JsonSerializer.Serialize(nvpm, JsonSettings());
             await hub.SendAsync("NotifyWebUsers", "Auto.Notifier",
-                json);
+                message);
         }
 
         static JsonSerializerOptions JsonSettings() =>

@@ -45,11 +45,11 @@ class Program
         Console.WriteLine($"new owner: {message.Name}");
         var ownerInfoRequest = new OwnerInfoRequest
         {
-            Number = message.NumberPhone
+            Registration = message.RegistrationCode
         };
         var ownerReply = await grpcClient.GetOwnerInfoAsync(ownerInfoRequest); 
-        Console.WriteLine($"Information about {ownerReply.Name}: lives at {ownerReply.Address}; vehicle registration number:{ownerReply.Registration}.");
-        var newOwnerRegMessage = new NewOwnerRegMessage(message);
-        await bus.PubSub.PublishAsync(newOwnerRegMessage);
+        Console.WriteLine($"Information about {message.Name}: owns a {ownerReply.Model} {ownerReply.Color} car. Lives in the {message.Address}.");
+        var newOwnerVecMessage = new NewOwnerVecMessage(message, ownerReply.Color, ownerReply.Model);
+        await bus.PubSub.PublishAsync(newOwnerVecMessage);
     }
 }
